@@ -1,0 +1,6 @@
+main: io.github.aorlov05.warps.WarpsPlugin
+name: Warps
+version: 1.0
+api-version: '1.20'
+author: aorlov05
+description: Allows server owners to add and remove player warps
