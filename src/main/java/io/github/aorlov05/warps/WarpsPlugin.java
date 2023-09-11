@@ -9,6 +9,8 @@ public final class WarpsPlugin extends JavaPlugin {
     @Override
     public void onEnable() {
         warpsData = new WarpsData(this);
+
+        getCommand("warpadmin").setExecutor(new WarpAdminCommand());
     }
 
     @Override

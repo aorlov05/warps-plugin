@@ -4,3 +4,6 @@ version: 1.0
 api-version: '1.20'
 author: aorlov05
 description: Allows server owners to add and remove player warps
+commands:
+  warpadmin:
+    description: Allows admins to set and remove warps
