@@ -41,6 +41,11 @@ public class WarpsData {
     }
 
     public void save() {
+        config.set("warps", null);
+        for (Map.Entry<String, Location> warp : warps.entrySet()) {
+            config.set("warps." + warp.getKey(), warp.getValue());
+        }
+
         try {
             config.save(file);
         } catch (IOException e) {
