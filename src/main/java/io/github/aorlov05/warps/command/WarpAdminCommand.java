@@ -1,5 +1,6 @@
-package io.github.aorlov05.warps;
+package io.github.aorlov05.warps.command;
 
+import io.github.aorlov05.warps.WarpsPlugin;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

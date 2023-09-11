@@ -1,5 +1,9 @@
 package io.github.aorlov05.warps;
 
+import io.github.aorlov05.warps.command.WarpAdminCommand;
+import io.github.aorlov05.warps.command.WarpAdminTabCompleter;
+import io.github.aorlov05.warps.command.WarpCommand;
+import io.github.aorlov05.warps.command.WarpTabCompleter;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class WarpsPlugin extends JavaPlugin {
@@ -12,6 +16,9 @@ public final class WarpsPlugin extends JavaPlugin {
 
         getCommand("warpadmin").setExecutor(new WarpAdminCommand(this));
         getCommand("warp").setExecutor(new WarpCommand(this));
+
+        getCommand("warpadmin").setTabCompleter(new WarpAdminTabCompleter(this));
+        getCommand("warp").setTabCompleter(new WarpTabCompleter(this));
     }
 
     @Override
