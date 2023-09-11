@@ -34,8 +34,20 @@ public class WarpsData {
         }
     }
 
+    private boolean isValidWarp(String name) {
+        return warps.containsKey(name);
+    }
+
+    public Location getWarp(String name) {
+        if (!isValidWarp(name)) {
+            return null;
+        }
+
+        return warps.get(name);
+    }
+
     public boolean addWarp(String name, Location location) {
-        if (warps.containsKey(name)) {
+        if (isValidWarp(name)) {
             return false;
         }
 

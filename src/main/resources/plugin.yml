@@ -7,3 +7,6 @@ description: Allows server owners to add and remove player warps
 commands:
   warpadmin:
     description: Allows admins to set and remove warps
+  warp:
+    aliases: [warps]
+    description: Player command to teleport to warps

@@ -11,6 +11,7 @@ public final class WarpsPlugin extends JavaPlugin {
         warpsData = new WarpsData(this);
 
         getCommand("warpadmin").setExecutor(new WarpAdminCommand(this));
+        getCommand("warp").setExecutor(new WarpCommand(this));
     }
 
     @Override
