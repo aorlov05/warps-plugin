@@ -8,6 +8,12 @@ import org.bukkit.entity.Player;
 
 public class WarpAdminCommand implements CommandExecutor {
 
+    private WarpsPlugin plugin;
+
+    public WarpAdminCommand(WarpsPlugin plugin) {
+        this.plugin = plugin;
+    }
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player player)) {
@@ -24,9 +30,21 @@ public class WarpAdminCommand implements CommandExecutor {
         }
 
         if (args[0].equalsIgnoreCase("set")) {
-            // TODO Implement adding warp
+            boolean warpAdded = plugin.getWarpsData().addWarp(args[1], player.getLocation());
+            if (!warpAdded) {
+                player.sendMessage(ChatColor.RED + "That warp name already exists!");
+                return false;
+            }
+
+            player.sendMessage(ChatColor.GREEN + "Created warp " + args[1] + "!");
         } else if (args[0].equalsIgnoreCase("delete")) {
-            // TODO Implement deleting warp
+            boolean warpExists = plugin.getWarpsData().removeWarp(args[1]);
+            if (!warpExists) {
+                player.sendMessage(ChatColor.RED + "There is no warp with that name!");
+                return false;
+            }
+
+            player.sendMessage(ChatColor.GREEN + "Successfully removed warp " + args[1] + "!");
         }
 
         return true;

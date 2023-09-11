@@ -10,12 +10,16 @@ public final class WarpsPlugin extends JavaPlugin {
     public void onEnable() {
         warpsData = new WarpsData(this);
 
-        getCommand("warpadmin").setExecutor(new WarpAdminCommand());
+        getCommand("warpadmin").setExecutor(new WarpAdminCommand(this));
     }
 
     @Override
     public void onDisable() {
         warpsData.save();
+    }
+
+    public WarpsData getWarpsData() {
+        return warpsData;
     }
 
 }
