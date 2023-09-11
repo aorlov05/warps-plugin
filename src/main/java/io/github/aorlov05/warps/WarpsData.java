@@ -25,6 +25,13 @@ public class WarpsData {
         config = YamlConfiguration.loadConfiguration(file);
 
         warps = new HashMap<>();
+        if (!config.isConfigurationSection("warps")) {
+            return;
+        }
+
+        for (String warp : config.getConfigurationSection("warps").getKeys(false)) {
+            warps.put(warp, config.getLocation("warps." + warp));
+        }
     }
 
     public boolean addWarp(String name, Location location) {
